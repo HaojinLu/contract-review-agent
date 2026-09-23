@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-multipart
+langchain-core
+langchain-openai
+langgraph
+pydantic
+mammoth
+magic-pdf
+huggingface-hub
+pymupdf
+Pillow

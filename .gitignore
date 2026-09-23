@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.py[cod]
+.venv/
+agent_venv/
+runtime/
+mineru_models/
+layoutreader/
+Ultralytics/
+output_md/
+contract_review_report/
+magic-pdf.json
+*.log
