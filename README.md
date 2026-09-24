@@ -2,6 +2,8 @@
 
 A prototype for comparing a procurement document with a draft contract. It combines document conversion, a LangGraph tool workflow, LLM-assisted clause extraction and comparison, and a local report viewer. The output is a review aid that requires human verification, not a legal decision.
 
+**My contribution:** I was responsible for backend development in the broader project. The web UI is included to show the complete workflow; I do not claim sole authorship of the full product.
+
 ## What this project demonstrates
 
 - A modular agent workflow with separate conversion, review, and report tools.
