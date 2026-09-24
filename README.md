@@ -55,6 +55,7 @@ This app has no authentication. Bind it to localhost; do not expose it as a publ
 
 ## Verification and limits
 
+- Run `python -m unittest discover -s tests -v` for dependency-free checks of JSON extraction and serialization. The GitHub Actions workflow also checks source syntax in a clean Python environment. These checks cover parsing behavior, **not** contract review quality or a complete API/OCR run.
 - The FastAPI application imports successfully in the original project runtime. This is a startup check, **not** a full review run.
 - Python syntax checks pass for the published source.
 - Original local contract files and generated reports are intentionally excluded. No client documents, scores, benchmark numbers, or anonymized results are claimed here.

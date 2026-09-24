@@ -12,6 +12,15 @@ def extract_json_payload(text: str) -> Any:
 
     last_error: Exception | None = None
 
+    # Prefer the complete payload when the model returned valid JSON directly.
+    # Otherwise the fallback scanner can mistake an object inside an array for
+    # the top-level response.
+    if stripped.startswith(("{", "[")):
+        try:
+            return json.loads(stripped)
+        except json.JSONDecodeError as exc:
+            last_error = exc
+
     fenced_blocks = re.findall(r"```(?:json)?\s*([\s\S]*?)```", stripped, flags=re.IGNORECASE)
     for block in fenced_blocks:
         candidate = block.strip()
@@ -33,10 +42,12 @@ def extract_json_payload(text: str) -> Any:
                 except json.JSONDecodeError as exc:
                     last_error = exc
 
-    for start_char, end_char in (("{", "}"), ("[", "]")):
-        start = stripped.find(start_char)
-        if start == -1:
-            continue
+    starts = sorted(
+        (stripped.find(start_char), start_char, end_char)
+        for start_char, end_char in (("{", "}"), ("[", "]"))
+        if stripped.find(start_char) != -1
+    )
+    for start, start_char, end_char in starts:
         depth = 0
         for idx in range(start, len(stripped)):
             ch = stripped[idx]
