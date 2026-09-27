@@ -1,6 +1,6 @@
 # Contract Review Agent
 
-A prototype for comparing a procurement document with a draft contract. It combines document conversion, a LangGraph tool workflow, LLM-assisted clause extraction and comparison, and a local report viewer. The output is a review aid that requires human verification, not a legal decision.
+A LangGraph and FastAPI prototype for procurement and contract comparison. It combines document conversion, LLM-assisted clause extraction and comparison, source-quote fields, and a local report viewer. The output is a review aid that requires human verification, not a legal decision.
 
 **My contribution:** I was responsible for backend development in the broader project. The web UI is included to show the complete workflow; I do not claim sole authorship of the full product.
 
